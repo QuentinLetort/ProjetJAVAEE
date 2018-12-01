@@ -1,0 +1,71 @@
+.messagetest {
+	color: red;
+}
+
+.student-table {
+	border-collapse: collapse;
+	width: 75%;
+}
+
+.student-table-header {
+	text-align: left;
+	padding: 8px;
+	background-color: #4CAF50;
+	color: white;
+}
+
+.student-table-even-row {
+	background-color: #f2f2f2
+}
+
+.butn {
+	margin: 8px 8px;
+	width: 40%;	
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 18px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+.butn:hover {
+	opacity: 1;
+}
+
+.text-input {
+	width: 50%;
+	padding: 5px 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.cancelbtn {
+	margin: 0 8px;
+	width: 40%;
+	color: white;
+	padding: 10px 18px;
+	border: none;
+	border-radius: 4px;
+	background-color: #f44336;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+.cancelbutn:hover {
+	opacity: 1;
+}
+.title{
+	margin: 50px;
+	width: 100%;
+	color: white;
+	background-color: #4CAF50;
+	font-size:30px;
+}
+.text-output{
+	padding: 10px 18px;
+}

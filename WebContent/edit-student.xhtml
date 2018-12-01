@@ -1,54 +1,95 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
-xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
-<head>
-  <title><ui:insert name="title">Default title</ui:insert></title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+	<h:outputStylesheet name="css/form.css" />
+</h:head>
 
 <body>
-<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
 
-<div id="header">
-    <ui:insert name="header">
-    EDIT STUDENT
-    
-    </ui:insert>
-</div>
+	<div id="header">
+		<ui:insert name="header">
+			<h:outputLabel styleClass="title">
+				<b>EDIT STUDENT</b>
+			</h:outputLabel>
+		</ui:insert>
+	</div>
+	<div id="content">
+		<ui:insert name="content">
+			<h:form>
+				<br />
+				<h:outputLabel>
+					<b>ID</b>
+				</h:outputLabel>
+				<br />
+				<h:outputText value="#{studentManager.editStudent.id}"
+					styleClass="text-output">ID</h:outputText>
+				<br />
 
+				<h:outputLabel>
+					<b>First Name</b>
+				</h:outputLabel>
+				<br />
+				<h:inputText value="#{studentManager.editStudent.firstName}"
+					id="firstName" required="true"
+					requiredMessage=" Fill the first name"
+					validatorMessage=" First name should contain at least 2 letters"
+					styleClass="text-input">
+					<f:validateLength minimum="2" />
+				</h:inputText>
+				<h:message for="firstName" style="color:red" />
+				<br />
 
-<div id="content">
-  <ui:insert name="content">
-    <h:form>
-    	<h:panelGrid columns="3">    	
-    	<h:outputLabel>ID</h:outputLabel> 
-		<h:outputText value="#{studentManager.editStudent.id}">ID</h:outputText> 
-		<br/>
-		<h:outputLabel>First Name</h:outputLabel> 
-		<h:inputText value="#{studentManager.editStudent.firstName}"/>  
-		<br/>
-		<h:outputLabel>Last Name</h:outputLabel> 
-		<h:inputText value="#{studentManager.editStudent.lastName}"/>  
-		<br/>
-		<h:outputLabel>Email</h:outputLabel> 
-		<h:inputText value="#{studentManager.editStudent.email}"/>  
-		<br/>
-		<h:commandButton action = "#{studentManager.updateStudent()}"       
-value="Save"></h:commandButton>
-		</h:panelGrid>
-    </h:form>
-    
-   
+				<h:outputLabel>
+					<b>Last Name</b>
+				</h:outputLabel>
+				<br />
+				<h:inputText value="#{studentManager.editStudent.lastName}"
+					id="lastName" required="true" requiredMessage=" Fill the last name"
+					validatorMessage=" Last name should contain at least 2 letters"
+					styleClass="text-input">
+					<f:validateLength minimum="2" />
+				</h:inputText>
+				<h:message for="lastName" style="color:red" />
+				<br />
 
- 
+				<h:outputLabel>
+					<b>Email</b>
+				</h:outputLabel>
+				<br />
+				<h:inputText value="#{studentManager.editStudent.email}" id="email"
+					required="true" requiredMessage="Fill the email address"
+					validatorMessage=" Email address must be the following form: emailName@email.com"
+					styleClass="text-input">
+					<f:validateRegex
+						pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+				</h:inputText>
+				<h:message for="email" style="color:red" />
+				<br />
 
-  </ui:insert>
-</div>
+				<h:commandButton action="#{studentManager.updateStudent()}"
+					value="Save" styleClass="butn"></h:commandButton>
 
-<div id="footer">
-  <ui:insert name="footer">
-  </ui:insert>
-</div>
+			</h:form>
+
+			<h:form>
+				<h:commandButton action="list-students" value="Cancel"
+					styleClass="cancelbtn"></h:commandButton>
+			</h:form>
+
+		</ui:insert>
+	</div>
+
+	<div id="footer">
+		<ui:insert name="footer">
+		</ui:insert>
+	</div>
 
 </body>
 
